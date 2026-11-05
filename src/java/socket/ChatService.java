@@ -26,7 +26,7 @@ public class ChatService {
 
     private static final ConcurrentHashMap<Integer, Session> SESSIONS = new ConcurrentHashMap<>();
     private static final Gson GSON = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss").create();
-    public static final String URL = "https://217b7332d13d.ngrok-free.app"; // ngrok proxy url
+    public static String URL = System.getenv("NGROK_URL"); // ngrok proxy url
 
     public static void register(int userId, Session session) {
         SESSIONS.put(userId, session);
